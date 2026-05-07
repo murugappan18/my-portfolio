@@ -226,6 +226,7 @@
       if (res.ok && json.success) {
         showStatus('success', '&#10003; Message sent! I\'ll get back to you soon.');
         form.reset();
+        setTimeout(hideStatus, 5000);
       } else {
         throw new Error(json.message || 'Submission failed');
       }
