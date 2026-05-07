@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Murugappan P — Aspiring Full Stack Developer. Java, Python, MERN, SAP Ariba. Portfolio of projects, experience, and achievements." />
+  <meta name="author" content="Murugappan P" />
+  <title>Murugappan P — Full Stack Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <div class="loader-text">MP</div>
+    </div>
+  </div>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav-logo">
+      <span class="logo-mark">M</span>
+      <span class="logo-text">Murugappan<span class="dot">.</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="pulse-dot"></span>
+        Available for Opportunities
+      </div>
+      <h1 class="hero-title">
+        <span class="line">Hi, I'm <span class="gradient-text">Murugappan</span></span>
+        <span class="line subtitle-line">A <span class="rotating-text">
+          <span>Full Stack Developer</span>
+          <span>Problem Solver</span>
+          <span>SAP Ariba Intern</span>
+          <span>Builder</span>
+        </span></span>
+      </h1>
+      <p class="hero-desc">
+        Aspiring developer crafting scalable applications with Java, Python, and the MERN stack.
+        Currently exploring SAP Ariba at Cognizant.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <span>View My Work</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="assets/Murugappan_Resume.pdf" download class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          <span>Download Resume</span>
+        </a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/murugappan18" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 0z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/murugappan-p" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.27c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76 1.75.79 1.75 1.76-.78 1.76-1.75 1.76zm13.5 12.27h-3v-5.6c0-3.37-4-3.11-4 0v5.6h-3v-11h3v1.76c1.4-2.59 7-2.78 7 2.48v6.76z"/></svg>
+        </a>
+        <a href="mailto:murugappanp24@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">01 — About</span>
+        <h2 class="section-title">A bit <span class="gradient-text">about me</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-image">
+          <div class="image-frame">
+            <img src="assets/profile.jpg" alt="Murugappan P" />
+            <div class="image-glow"></div>
+          </div>
+          <div class="floating-badge badge-1">
+            <strong>8.67</strong>
+            <span>CGPA</span>
+          </div>
+          <div class="floating-badge badge-2">
+            <strong>4+</strong>
+            <span>Internships</span>
+          </div>
+        </div>
+        <div class="about-content">
+          <p class="about-lead">
+            Aspiring developer with hands-on experience in <strong>Java</strong>, <strong>Python</strong>, and <strong>Full Stack Development</strong>, recognized for building scalable applications and leading impactful projects.
+          </p>
+          <p>
+            Strong team player with proven collaboration in hackathons and real-world applications, currently working in the <strong>SAP Ariba</strong> domain at Cognizant. I love solving problems — over <strong>1600+</strong> of them across competitive coding platforms.
+          </p>
+          <div class="about-meta">
+            <div class="meta-item">
+              <span class="meta-label">Education</span>
+              <span class="meta-value">B.E. Computer & Communication Engg.</span>
+              <span class="meta-sub">Sri Sairam Institute of Technology · 2022–2026</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Currently</span>
+              <span class="meta-value">SAP Ariba Intern</span>
+              <span class="meta-sub">Cognizant Technology Solutions</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Based in</span>
+              <span class="meta-value">Chennai, India</span>
+              <span class="meta-sub">Open to remote &amp; on-site roles</span>
+            </div>
+          </div>
+          <div class="about-stats">
+            <div class="stat" data-target="1600">
+              <strong class="stat-num">0</strong><span>+</span>
+              <p>DSA Problems</p>
+            </div>
+            <div class="stat" data-target="3">
+              <strong class="stat-num">0</strong><span>+</span>
+              <p>Major Projects</p>
+            </div>
+            <div class="stat" data-target="4">
+              <strong class="stat-num">0</strong><span>+</span>
+              <p>Internships</p>
+            </div>
+            <div class="stat" data-target="1">
+              <strong class="stat-num">0</strong><span>st</span>
+              <p>Hackathon Win</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">02 — Skills</span>
+        <h2 class="section-title">Tools of <span class="gradient-text">the trade</span></h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card tilt">
+          <div class="skill-icon">{ }</div>
+          <h3>Languages</h3>
+          <ul class="skill-list">
+            <li>Java</li><li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>SQL</li>
+          </ul>
+        </div>
+        <div class="skill-card tilt">
+          <div class="skill-icon">⚡</div>
+          <h3>Frameworks</h3>
+          <ul class="skill-list">
+            <li>React</li><li>Node.js</li><li>Express</li><li>Spring Boot</li><li>Flask</li><li>Streamlit</li><li>REST APIs</li>
+          </ul>
+        </div>
+        <div class="skill-card tilt">
+          <div class="skill-icon">⛁</div>
+          <h3>Databases</h3>
+          <ul class="skill-list">
+            <li>SQLite</li><li>MySQL</li><li>MongoDB</li><li>Firebase</li>
+          </ul>
+        </div>
+        <div class="skill-card tilt">
+          <div class="skill-icon">⚙</div>
+          <h3>Platforms &amp; Tools</h3>
+          <ul class="skill-list">
+            <li>Git</li><li>GitHub</li><li>Postman</li><li>Linux</li>
+          </ul>
+        </div>
+        <div class="skill-card tilt">
+          <div class="skill-icon">✦</div>
+          <h3>AI &amp; Productivity</h3>
+          <ul class="skill-list">
+            <li>GitHub Copilot</li><li>Cursor</li><li>Gemini</li><li>ChatGPT</li><li>Claude</li>
+          </ul>
+        </div>
+        <div class="skill-card tilt skill-card-cta">
+          <div class="skill-icon">+</div>
+          <h3>Always Learning</h3>
+          <p>Currently exploring SAP Ariba upstream/downstream modules and procurement workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">03 — Projects</span>
+        <h2 class="section-title">Things I've <span class="gradient-text">built</span></h2>
+      </div>
+      <div class="projects-list">
+
+        <article class="project-card tilt">
+          <div class="project-num">01</div>
+          <div class="project-visual">
+            <div class="project-shape shape-mass"></div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Backend · Automation</span>
+            <h3>Mass Mailing System</h3>
+            <p>Email automation system handling 100+ concurrent dispatches with high delivery reliability. Built admin panel for user management, template configuration, and dispatch performance summaries.</p>
+            <div class="project-tech">
+              <span>Python</span><span>Flask</span><span>Streamlit</span><span>SQLite</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/murugappan18/Mass-Mailer" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 0z"/></svg>
+                <span>View Code</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card tilt">
+          <div class="project-num">02</div>
+          <div class="project-visual">
+            <div class="project-shape shape-vault"></div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Blockchain · Web3</span>
+            <h3>Decentralized eVault for Legal Documents</h3>
+            <p>Blockchain-secured legal document storage system targeting 100% elimination of physical document tampering. AES-GCM encryption before IPFS storage; CID anchored on-chain. Built in a 3-member team.</p>
+            <div class="project-tech">
+              <span>React</span><span>Solidity</span><span>Ethers.js</span><span>IPFS</span><span>MetaMask</span><span>Firebase</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/murugappan18/EVault" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 0z"/></svg>
+                <span>View Code</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card tilt">
+          <div class="project-num">03</div>
+          <div class="project-visual">
+            <div class="project-shape shape-nav"></div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Full Stack · Social Impact</span>
+            <h3>NavAble — Accessibility Mapping</h3>
+            <p>Crowd-sourced accessibility platform letting users report accessible locations (ramps, elevators, restrooms) on interactive maps. JWT auth, admin image-proof validation, mobile-first responsive UI.</p>
+            <div class="project-tech">
+              <span>MongoDB</span><span>Express</span><span>React</span><span>Node.js</span><span>JWT</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/murugappan18/NavAble" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 0z"/></svg>
+                <span>View Code</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="experience" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">04 — Experience</span>
+        <h2 class="section-title">Where I've <span class="gradient-text">worked</span></h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Feb 2026 — Present</span>
+            <h3>SAP Ariba Intern</h3>
+            <h4>Cognizant Technology Solutions</h4>
+            <ul>
+              <li>Gained foundational expertise in Upstream and Downstream modules — end-to-end Supplier Lifecycle &amp; Performance and strategic sourcing.</li>
+              <li>Analyzed procurement processes and participated in technical evaluations focused on optimizing supplier onboarding and solution design.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Jun 2025 — Jul 2025</span>
+            <h3>Python Stack Development Intern</h3>
+            <h4>Xenforte Technologies Pvt Ltd</h4>
+            <ul>
+              <li>Built <strong>Aiditor</strong>, a production-grade auditor management platform in a 4-member Agile team using Flask, SQLite, and vanilla JS/HTML/CSS.</li>
+              <li>Designed and integrated 30+ dynamic data-capture forms for client tax workflows, document uploads, and activity tracking.</li>
+              <li>Automated multi-channel notifications (email, SMS, in-app) — reduced manual follow-up overhead significantly.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Nov 2024 — Dec 2024</span>
+            <h3>Python Stack Development Intern</h3>
+            <h4>Infosys Springboard</h4>
+            <ul>
+              <li>Developed a Scalable Mass Mailing Application using Streamlit, Flask, and SQLite3.</li>
+              <li>Architected admin-facing email template management, user control, and delivery analytics — optimised for high deliverability and bulk dispatch reliability.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Aug 2023 — Sep 2023</span>
+            <h3>Web Development Intern</h3>
+            <h4>Open Weaver India Private Limited</h4>
+            <ul>
+              <li>Developed <strong>Doctory</strong>, an AI-powered healthcare platform with medicine info, appointment booking, online consultation, and delivery modules.</li>
+              <li>Ranked <strong>Top 50 out of 32,500 participants</strong> — recognised with Apple AirPods for engineering excellence.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="achievements" id="achievements">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">05 — Achievements &amp; Certifications</span>
+        <h2 class="section-title">Wins &amp; <span class="gradient-text">credentials</span></h2>
+      </div>
+
+      <div class="achievement-grid">
+        <div class="achievement-card tilt">
+          <div class="ach-icon">🏆</div>
+          <h3>1st Place — Blockchain</h3>
+          <p>Qtuxathon 2.0 hackathon by Sairam. Built backend &amp; smart contract integration for an automated insurance claim system.</p>
+          <span class="ach-stack">Node.js · MongoDB · React · Chainlink</span>
+        </div>
+        <div class="achievement-card tilt">
+          <div class="ach-icon">🥈</div>
+          <h3>HAVOC CTF — 2nd &amp; 3rd</h3>
+          <p>Placed 2nd and 3rd in HAVOC CTF and HAVOC CTF 2.0 at college; recognized as a top performer in Pecan+ CTF by PALS.</p>
+          <span class="ach-stack">Capture The Flag · Security</span>
+        </div>
+        <div class="achievement-card tilt">
+          <div class="ach-icon">🎙</div>
+          <h3>SIH 2024 Voice Translator</h3>
+          <p>Built an AI mobile app with real-time voice-text translation across 5 Indian languages — implemented Google Speech-to-Text for accurate input.</p>
+          <span class="ach-stack">AI · STT · Mobile</span>
+        </div>
+        <div class="achievement-card tilt">
+          <div class="ach-icon">⚡</div>
+          <h3>1600+ DSA Problems</h3>
+          <p>Solved across SkillRack, GeeksforGeeks, LeetCode, and CodeChef — daily practice in algorithms, data structures, and competitive programming.</p>
+          <span class="ach-stack">Algorithms · Problem Solving</span>
+        </div>
+      </div>
+
+      <h3 class="cert-heading">Certifications</h3>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <span class="cert-issuer">Coursera</span>
+          <h4>Google AI Essentials</h4>
+        </div>
+        <div class="cert-card">
+          <span class="cert-issuer">Coursera</span>
+          <h4>Google Prompting Essentials</h4>
+        </div>
+        <div class="cert-card">
+          <span class="cert-issuer">NPTEL</span>
+          <h4>Programming in Java</h4>
+        </div>
+        <div class="cert-card">
+          <span class="cert-issuer">NPTEL</span>
+          <h4>Software Conceptual Design</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">06 — Contact</span>
+        <h2 class="section-title">Let's <span class="gradient-text">build something</span></h2>
+        <p class="section-desc">Got an opportunity, project idea, or just want to say hi? My inbox is always open.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="ci-label">Email</span>
+            <a href="mailto:murugappanp24@gmail.com" class="ci-value">murugappanp24@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="ci-label">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/murugappan-p" target="_blank" rel="noopener" class="ci-value">murugappan-p</a>
+          </div>
+          <div class="contact-item">
+            <span class="ci-label">GitHub</span>
+            <a href="https://github.com/murugappan18" target="_blank" rel="noopener" class="ci-value">murugappan18</a>
+          </div>
+          <div class="contact-item">
+            <span class="ci-label">Location</span>
+            <span class="ci-value">Chennai, India</span>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+          <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required placeholder="Jane Doe" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required placeholder="Let's collaborate on..." />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Tell me a bit about your project, role, or idea..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            <span>Send Message</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+          <p class="form-note">If the form can't reach the network, your default email app will open with the message pre-filled — just press Send.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-mark">M</span>
+          <div>
+            <strong>Murugappan P</strong>
+            <span>Full Stack Developer</span>
+          </div>
+        </div>
+        <div class="footer-socials">
+          <a href="https://github.com/murugappan18" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 0z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/murugappan-p" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.27c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76 1.75.79 1.75 1.76-.78 1.76-1.75 1.76zm13.5 12.27h-3v-5.6c0-3.37-4-3.11-4 0v5.6h-3v-11h3v1.76c1.4-2.59 7-2.78 7 2.48v6.76z"/></svg>
+          </a>
+          <a href="mailto:murugappanp24@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+          </a>
+        </div>
+        <p class="footer-copy">© <span id="year"></span> Murugappan P. Crafted with care.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/three-scene.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
