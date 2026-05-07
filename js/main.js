@@ -189,15 +189,56 @@
     });
   });
 
-  // ---------- Contact form button feedback ----------
-  // The form submits natively to its action URL — no JS submission handling here.
-  // We just give the submit button a "Sending..." label for instant UX feedback.
+  // ---------- Contact form — fetch submission ----------
   const form = document.getElementById('contact-form');
-  form?.addEventListener('submit', () => {
+  const statusEl = document.getElementById('form-status');
+
+  function showStatus(type, html) {
+    statusEl.className = `form-status show ${type}`;
+    statusEl.innerHTML = html;
+  }
+
+  function hideStatus() {
+    statusEl.className = 'form-status';
+    statusEl.innerHTML = '';
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
     const submitBtn = form.querySelector('button[type="submit"]');
     const btnText = submitBtn?.querySelector('span');
+    const originalText = btnText?.textContent ?? 'Send Message';
+
     if (btnText) btnText.textContent = 'Sending...';
     if (submitBtn) submitBtn.disabled = true;
+    hideStatus();
+
+    try {
+      const data = Object.fromEntries(new FormData(form));
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+
+      if (res.ok && json.success) {
+        showStatus('success', '&#10003; Message sent! I\'ll get back to you soon.');
+        form.reset();
+      } else {
+        throw new Error(json.message || 'Submission failed');
+      }
+    } catch {
+      showStatus(
+        'error',
+        'Something went wrong. Please email me directly at <a href="mailto:murugappanp24@gmail.com">murugappanp24@gmail.com</a>'
+      );
+      setTimeout(hideStatus, 5000);
+    } finally {
+      if (btnText) btnText.textContent = originalText;
+      if (submitBtn) submitBtn.disabled = false;
+    }
   });
 
 })();
